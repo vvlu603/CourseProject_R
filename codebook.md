@@ -10,14 +10,12 @@ This codebook will also mention any changes to the data/transformations that wer
 Below are the outlined steps behind run_analysis.R: 
 1. (optional) Set the working directory
 2. Read in the training set data: X_train.txt as train_data, y_train.txt as train_label, and subject_train.txt as train_subject 
-3. Read in the test set data: X_test.txt as test_data, y_test.txt as test_label, and subject_test.txt as test_subject. 
-4. Merge the test and training set data by using rbind() to join the _data variables (resulting in a 10299*561 dataframe named joinData), _label variables (resulting in a 10299*1 dataframe named joinLabel), and subject variables (resulting in a 10299*1 dataframe named joinSubject). 
+3. Read in the test set data: X_test.txt as test_data, y_test.txt as test_label, and subject_test.txt as test_subject.
+4. Merge the test and training set data by using rbind() to join the _data variables (resulting in a 10299*561 dataframe named  joinData), _label variables (resulting in a 10299*1 dataframe named joinLabel), and subject variables (resulting in a 10299*1 dataframe named joinSubject). 
 5. Read in the features.txt file as features. Obtain the observations with columns that have "Mean" or "Std" in the names, and use them to subset joinData.
-6. Cleanup the names of the joinData dataframe subset with regular expressions (i.e. removing unnecessary parentheses and dashes). 
+6. Cleanup the names of the joinData dataframe subset with regular expressions (i.e. removing unnecessary parentheses and dashes).
 7. Read in the activity_labels.txt and store as a dataframe named activity. Clean up the names of the activity dataframe to transform the values of joinLabel. 
 8. Merge all joinSubject, joinLabel, and joinData together as one large dataframe named clean_data. Dimensions should be 10299*68. 
 9. Use write.table() to create a mergeddata.txt table of the merged data. 
-10. A second dataset is to be created with the average of each measurement for each activity and each subject. 
-* As mentioned from the dataset, there are 30 individuals with 6 activities each, therefore resulting in 180 combinations. For each combination, we calculate the mean of the measurements from a particular combination. 
-* The resulting dataframe has a dimension of 180*68. 
+10. A second dataset is to be created with the average of each measurement for each activity and each subject. As mentioned from the dataset, there are 30 individuals with 6 activities each, therefore resulting in 180 combinations. For each combination, we calculate the mean of the measurements from a particular combination. The resulting dataframe has a dimension of 180*68. 
 11. Use write.table() again to write out the second data set as data_means.txt. 
